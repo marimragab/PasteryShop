@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PasteryShop.Models;
 
@@ -10,9 +11,11 @@ using PasteryShop.Models;
 namespace PasteryShop.Migrations
 {
     [DbContext(typeof(PasteryShopContext))]
-    partial class PasteryShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230806093107_addingCard")]
+    partial class addingCard
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -87,13 +90,13 @@ namespace PasteryShop.Migrations
                     b.ToTable("Pies");
                 });
 
-            modelBuilder.Entity("PasteryShop.Models.ShoppingCartItem", b =>
+            modelBuilder.Entity("PasteryShop.Models.ShoppingCardItem", b =>
                 {
-                    b.Property<int>("ShoppingCartItemId")
+                    b.Property<int>("ShoppingCardItemId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShoppingCartItemId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ShoppingCardItemId"));
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
@@ -104,11 +107,11 @@ namespace PasteryShop.Migrations
                     b.Property<string>("ShoppingCardId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ShoppingCartItemId");
+                    b.HasKey("ShoppingCardItemId");
 
                     b.HasIndex("PieId");
 
-                    b.ToTable("ShoppingCartItems");
+                    b.ToTable("ShoppingCardItems");
                 });
 
             modelBuilder.Entity("PasteryShop.Models.Pie", b =>
@@ -122,7 +125,7 @@ namespace PasteryShop.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("PasteryShop.Models.ShoppingCartItem", b =>
+            modelBuilder.Entity("PasteryShop.Models.ShoppingCardItem", b =>
                 {
                     b.HasOne("PasteryShop.Models.Pie", "Pie")
                         .WithMany()

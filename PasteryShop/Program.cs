@@ -21,7 +21,10 @@ namespace PasteryShop
 
 			builder.Services.AddScoped<IPieRepository, PieRepository>();
 			builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
+			builder.Services.AddScoped<IShoppingCart, ShoppingCart>(sh => ShoppingCart.GetCart(sh));
 
+			builder.Services.AddSession();
+			builder.Services.AddHttpContextAccessor();
 
 			var app = builder.Build();
 
@@ -35,6 +38,7 @@ namespace PasteryShop
 
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
+			app.UseSession();
 
 			app.UseRouting();
 
@@ -48,4 +52,4 @@ namespace PasteryShop
 			app.Run();
 		}
 	}
-}
+} 
