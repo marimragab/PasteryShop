@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using PasteryShop.Models;
 using PasteryShop.Services;
 
 namespace PasteryShop
@@ -10,6 +12,13 @@ namespace PasteryShop
 
 			// Add services to the container.
 			builder.Services.AddControllersWithViews();
+
+			builder.Services.AddDbContext<PasteryShopContext>(options =>
+			{
+				options.UseSqlServer(
+					builder.Configuration.GetConnectionString("PasteryShopDbConnection"));
+			});	
+
 			builder.Services.AddScoped<IPieRepository, PieRepository>();
 			builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
 
@@ -35,6 +44,7 @@ namespace PasteryShop
 				name: "default",
 				pattern: "{controller=Home}/{action=Index}/{id?}");
 
+			DbInitializer.Seed(app);
 			app.Run();
 		}
 	}

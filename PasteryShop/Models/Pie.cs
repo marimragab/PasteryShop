@@ -16,10 +16,13 @@ namespace PasteryShop.Models
         public string? LongDescription { get; set; }
 
 		[Required]
-		public decimal Price { get; set; }	
+		public decimal Price { get; set; }
+
+		public string? AllergyInformation { get; set; }
 
 		public string? ImageUrl { get; set; }
 
+		public string? ImageThumbnailUrl { get; set; }
 		[Required]
 		public bool IsPieOfTheWeek { get; set; }
 
