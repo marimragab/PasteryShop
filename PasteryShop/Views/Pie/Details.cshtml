@@ -13,7 +13,15 @@
 			@Model.Price.ToString("c")
 		</h3>
 		<div class="addToCart">
-			<p class="button"></p>
+			<p class="button">
+				<a class="btn btn-secondary"
+				   asp-controller="ShoppingCart"
+				   asp-action="AddToShoppingCart"
+				   asp-route-pieId="@Model.PieId">
+
+					+ Add To Cart
+				</a>
+			</p>
 		</div>
 	</div>
 </div>

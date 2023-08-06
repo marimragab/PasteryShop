@@ -14,7 +14,7 @@ namespace PasteryShop.Services
 
 		decimal GetShoppingCartTotal();
 
-		List<ShoppingCartItem> ShoppingCartItems;
+		List<ShoppingCartItem> ShoppingCartItems { get; set; }
 
 	}
 }
