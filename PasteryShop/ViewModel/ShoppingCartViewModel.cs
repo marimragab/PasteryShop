@@ -13,7 +13,6 @@ namespace PasteryShop.ViewModel
 			ShoppingCart = shoppingCart;
 			ShoppingCartTotal = shoppingCartTotal;
 		}
-
 	
 	}
 }
