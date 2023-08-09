@@ -12,7 +12,8 @@
             <a class="dropdown-item"
                asp-controller="Pie"
                asp-action="List"
-            >All Categories</a>
+               asp-route-category=""
+            >All Pies</a>
         </li>
         @foreach (var category in Model)
         {
