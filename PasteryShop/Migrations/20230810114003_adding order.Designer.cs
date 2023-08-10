@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PasteryShop.Models;
 
@@ -11,9 +12,11 @@ using PasteryShop.Models;
 namespace PasteryShop.Migrations
 {
     [DbContext(typeof(PasteryShopContext))]
-    partial class PasteryShopContextModelSnapshot : ModelSnapshot
+    [Migration("20230810114003_adding order")]
+    partial class addingorder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
