@@ -1,4 +1,5 @@
-﻿using PasteryShop.Models;
+﻿using Moq;
+using PasteryShop.Models;
 using PasteryShop.Services;
 using System;
 using System.Collections.Generic;
@@ -161,8 +162,8 @@ namespace PasteryShopTests.Mocks
             };
 
             var mockPieRepository = new Mock<IPieRepository>();
-            mockPieRepository.Setup(repo => repo.AllPies).Returns(pies);
-            mockPieRepository.Setup(repo => repo.PiesOfTheWeek).Returns(pies.Where(p => p.IsPieOfTheWeek));
+            mockPieRepository.Setup(repo => repo.AllPies()).Returns(pies);
+            mockPieRepository.Setup(repo => repo.PiesOfTheWeek()).Returns(pies.Where(p => p.IsPieOfTheWeek));
             mockPieRepository.Setup(repo => repo.GetPieById(It.IsAny<int>())).Returns(pies[0]);
             return mockPieRepository;
         }
@@ -192,7 +193,7 @@ namespace PasteryShopTests.Mocks
             };
 
             var mockCategoryRepository = new Mock<ICategoryRepository>();
-            mockCategoryRepository.Setup(repo => repo.AllCategories).Returns(categories);
+            mockCategoryRepository.Setup(repo => repo.AllCategories()).Returns(categories);
 
             return mockCategoryRepository;
         }

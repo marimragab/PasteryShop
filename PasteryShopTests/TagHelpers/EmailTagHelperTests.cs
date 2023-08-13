@@ -1,4 +1,6 @@
-﻿using PasteryShop.TagHelpers;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+using Moq;
+using PasteryShop.TagHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +30,7 @@ namespace PasteryShopTests.TagHelpers
 
             Assert.Equal("Email", tagHelperOutput.Content.GetContent());
             Assert.Equal("a", tagHelperOutput.TagName);
-            Assert.Equal("test@pasteryshop.com", tagHelperOutput.Attributes[0].Value);
+            Assert.Equal("mailto:test@pasteryshop.com", tagHelperOutput.Attributes[0].Value);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PasteryShop.Controllers;
+﻿using Microsoft.AspNetCore.Mvc;
+using PasteryShop.Controllers;
 using PasteryShop.ViewModel;
 using PasteryShopTests.Mocks;
 using System;
@@ -21,7 +22,7 @@ namespace PasteryShopTests.Controllers
             var result = pieController.List("");
 
             var viewResult = Assert.IsType<ViewResult>(result);
-            var pieListViewModel=Assert.IsAssignableForm<PieListViewModel>(viewResult.ViewData.Model);
+            var pieListViewModel=Assert.IsAssignableFrom<PieListViewModel>(viewResult.ViewData.Model);
             Assert.Equal(10, pieListViewModel.Pies.Count());
         }
     }
